@@ -1,6 +1,6 @@
 # Let's do some exercises!
 
-Welcome! This repo contains all the information you need to complete __exercise-name__ aswell as some helpful tips and commands
+Welcome! This repo contains all the information you need to complete the __coding challenge__ as well as some helpful tips and commands
 
 # As student, what do I need to do?
 
