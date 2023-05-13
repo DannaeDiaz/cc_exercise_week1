@@ -21,8 +21,41 @@ func(['js','hola','false',2,1,false,'hola',2,'',true,'']) => output [ 'hola', 2,
 const getRepeated = (array) => {
   /* Only make changes below this comment */
 
+  // Check if the input is an array
+  if (!Array.isArray(array)) {
+    return "Please enter an array";
+  }
+  // Array to store the repeated values
+  let repeatedValues = [];
+  // Object to keep track of values
+  let values = {};
+
+  // Iterate over the array elements
+  for (let i = 0; i < array.length; i++) {
+    let element = array[i];
+
+    // Check if the value has been iterated before
+    if (values[element]) {
+      // If the value is repeated and not already in the repeatedValues array, push it
+      if (repeatedValues.indexOf(element) === -1) {
+        //index -1 means that the element doesn't exist in the array
+        repeatedValues.push(element);
+      }
+    } else {
+      //label the element as found
+      values[element] = true;
+    }
+  }
+  return repeatedValues;
+
   /* Only make changes above this comment */
 };
 
 /** DO NOT CHANGE THE LINE BELOW **/
 module.exports.getRepeated = getRepeated;
+
+array1 = [1, 2, 3, 2, 3, 5, 2];
+array2 = [true, false, "true", false];
+
+console.log(getRepeated(array1));
+console.log(getRepeated(array2));
