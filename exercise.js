@@ -34,16 +34,21 @@ const getRepeated = (array) => {
   for (let i = 0; i < array.length; i++) {
     let element = array[i];
 
+    // Use a combination of the element's value and its type
+    let elementKey = typeof element + " " + element;
+
     // Check if the value has been iterated before
-    if (values[element]) {
+    if (values[elementKey]) {
       // If the value is repeated and not already in the repeatedValues array, push it
-      if (values.hasOwnProperty(element) && !repeatedValues.includes(element)) {
-        //index -1 means that the element doesn't exist in the array
+      if (
+        values.hasOwnProperty(elementKey) &&
+        !repeatedValues.includes(element)
+      ) {
         repeatedValues.push(element);
       }
     } else {
       //label the element as found
-      values[element] = true;
+      values[elementKey] = true;
     }
   }
   return repeatedValues;
