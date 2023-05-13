@@ -21,6 +21,27 @@ func(['js','hola','false',2,1,false,'hola',2,'',true,'']) => output [ 'hola', 2,
 const getRepeated = (array) => {
   /* Only make changes below this comment */
 
+  //Check if the argument is an array
+  if (!Array.isArray(array)) {
+    return "Please enter an array";
+  }
+
+  const seen = [];
+  const duplicates = [];
+
+  // Loop through the array
+  for (let i = 0; i < array.length; i++) {
+    // If the value is in seen but not in duplicates, add to duplicates
+    if (seen.includes(array[i]) && !duplicates.includes(array[i])) {
+      duplicates.push(array[i]);
+    }
+    // If the value is not in seen, add to seen
+    if (!seen.includes(array[i])) {
+      seen.push(array[i]);
+    }
+  }
+
+  return duplicates; //Return the array of duplicated values
   /* Only make changes above this comment */
 };
 
