@@ -37,7 +37,7 @@ const getRepeated = (array) => {
     // Check if the value has been iterated before
     if (values[element]) {
       // If the value is repeated and not already in the repeatedValues array, push it
-      if (repeatedValues.indexOf(element) === -1) {
+      if (values.hasOwnProperty(element) && !repeatedValues.includes(element)) {
         //index -1 means that the element doesn't exist in the array
         repeatedValues.push(element);
       }
