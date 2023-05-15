@@ -20,6 +20,25 @@ func(['js','hola','false',2,1,false,'hola',2,'',true,'']) => output [ 'hola', 2,
 /** DO NOT CHANGE THE FUNCTION NAME **/
 const getRepeated = (array) => {
   /* Only make changes below this comment */
+  if (!Array.isArray(array)) {
+    return "Please enter an array";
+  }
+  if (array.length < 1) {
+    return [];
+  }
+
+  const duplicates = [];
+
+  const uniqueValues = new Set();
+  for (const value of array) {
+    if (uniqueValues.has(value)) {
+      duplicates.push(value);
+    } else {
+      uniqueValues.add(value);
+    }
+  }
+  const result = Array.from(new Set(duplicates));
+  return result;
 
   /* Only make changes above this comment */
 };
