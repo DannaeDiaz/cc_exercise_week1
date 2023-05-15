@@ -20,6 +20,24 @@ func(['js','hola','false',2,1,false,'hola',2,'',true,'']) => output [ 'hola', 2,
 /** DO NOT CHANGE THE FUNCTION NAME **/
 const getRepeated = (array) => {
   /* Only make changes below this comment */
+  if (Array.isArray(array)) {
+    const counter = new Map();
+    const repitedValues = [];
+    for (let i = 0; i < array.length; i++) {
+      const value = array[i];
+      const quantity = counter.get(value) || 0;
+      counter.set(value, quantity + 1);
+    }
+    counter.forEach((frequency, value) => {
+      if (frequency > 1) {
+        repitedValues.push({ value: value, frequency: frequency });
+      }
+    });
+    const orderedValues = repitedValues.map((item) => item.value);
+    return orderedValues;
+  } else {
+    return "Please enter an array";
+  }
 
   /* Only make changes above this comment */
 };
