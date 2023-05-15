@@ -20,6 +20,26 @@ func(['js','hola','false',2,1,false,'hola',2,'',true,'']) => output [ 'hola', 2,
 /** DO NOT CHANGE THE FUNCTION NAME **/
 const getRepeated = (array) => {
   /* Only make changes below this comment */
+  if (!Array.isArray(array)) {
+    return "Please enter an array";
+  }
+
+  const countMap = {};
+  const repeatedValues = [];
+
+  for (let i = 0; i < array.length; i++) {
+    const value = array[i];
+    // Exclude boolean values from being added to the repeatedValues array
+    if (typeof value !== "boolean") {
+      // Update the count of the current value in the countMap object
+      countMap[value] = (countMap[value] || 0) + 1;
+      // If the count of the value becomes 2
+      if (countMap[value] === 2) {
+        repeatedValues.push(value);
+      }
+    }
+  }
+  return repeatedValues;
 
   /* Only make changes above this comment */
 };
